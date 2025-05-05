@@ -82,7 +82,7 @@ export const getUsersLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`http://localhost:3000/api/user/liked/${email}`);
+    } = await axios.get(`https://streamline-43lf.onrender.com/api/user/liked/${email}`);
     return movies;
   }
 );
@@ -92,7 +92,7 @@ export const removeMovieFromLiked = createAsyncThunk(
   async ({ movieId, email }) => {
     const {
       data: { movies },
-    } = await axios.put("http://localhost:3000/api/user/remove", {
+    } = await axios.put("https://streamline-43lf.onrender.com/api/user/remove", {
       email,
       movieId,
     });
@@ -103,7 +103,7 @@ export const removeMovieFromLiked = createAsyncThunk(
 export const addMovieToLiked = createAsyncThunk(
   "netflix/addMovieToLiked",
   async ({ email, movie }, thunkAPI) => {
-    const { data } = await axios.post("http://localhost:3000/api/user/add", {
+    const { data } = await axios.post("https://streamline-43lf.onrender.com/api/user/add", {
       email,
       data: movie,
     });
