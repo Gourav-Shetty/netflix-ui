@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
+import myLogo from "../assets/mylogo.png";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
 import { firebaseAuth } from "../utils/firebase-config";
 
@@ -34,6 +35,9 @@ export default function Navbar({ isScrolled, onSearch }) {
             <Link to="/">
               <img src={logo} alt="Logo" />
             </Link>
+          </div>
+          <div className="navbar-logo">
+            <img src={myLogo} alt="Logo" style={{ height: "40px" }} />
           </div>
           <ul className="links flex">
             {links.map(({ name, link }) => (
@@ -112,6 +116,11 @@ const Container = styled.div`
           }
         }
       }
+    }
+    .navbar-logo img {
+      height: 40px;
+      width: auto;
+      margin-right: 1rem;
     }
     .right {
       gap: 1rem;
