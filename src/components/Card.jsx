@@ -11,7 +11,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { useDispatch } from "react-redux";
 import { removeMovieFromLiked } from "../store";
-import video from "../assets/video.mp4";
 
 export default React.memo(function Card({ index, movieData, isLiked = false }) {
   const navigate = useNavigate();
@@ -53,13 +52,6 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
             <img
               src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
               alt="card"
-              onClick={() => navigate("/player")}
-            />
-            <video
-              src={video}
-              autoPlay={true}
-              loop
-              muted
               onClick={() => navigate("/player")}
             />
           </div>
@@ -139,15 +131,6 @@ const Container = styled.div`
         border-radius: 0.3rem;
         top: 0;
         z-index: 4;
-        position: absolute;
-      }
-      video {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 0.3rem;
-        top: 0;
-        z-index: 5;
         position: absolute;
       }
     }
